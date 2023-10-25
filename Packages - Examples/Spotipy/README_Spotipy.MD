@@ -6,6 +6,7 @@
 ## Necessary Packages
 * [pip install python-dotenv](https://pypi.org/project/python-dotenv/)
 * [pip install spotipy](https://spotipy.readthedocs.io/)
+* [pip install requests](https://pypi.org/project/requests/)
 
 ## Important Links
 * [Authenticating](https://www.youtube.com/watch?v=kaBVN8uP358&t=0s)
