@@ -14,6 +14,7 @@
 
 ## Client Credentials Flow (Authenticating)
 ![Spotify](https://developer.spotify.com/images/documentation/web-api/auth-client-credentials.png)
+
 [Documentation](https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow)
 
 ## Environment Variables
