@@ -2,7 +2,7 @@
 ![Logo]("")
 
 ## Navigation to other Docs
-[Spotipy](\Packages - Examples\Spotipy\README_Spotipy.md)
+[Spotipy](Packages - Examples/Spotipy/README_Spotipy.md)
 
 ## Problem
 Imagine you are an avid traveler, and you like traveling to other countries to experience their rich cultures. Aside from visiting monuments, eating new cuisine, and taking memorable pictures, music becomes an outlet to experience culture through a new lens. Unfortunately, travelers are unfamiliar with local music genres and musicians, limiting their impression of a country's creative realm.
