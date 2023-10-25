@@ -12,6 +12,10 @@
 * [Authenticating](https://www.youtube.com/watch?v=kaBVN8uP358&t=0s)
 * [Tutorial](https://www.youtube.com/watch?v=WAmEZBEeNmg)
 
+## Client Credentials Flow (Authenticating)
+![Spotify](https://developer.spotify.com/images/documentation/web-api/auth-client-credentials.png)
+[Documentation](https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow)
+
 ## Environment Variables
 
 ### Client ID
