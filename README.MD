@@ -27,7 +27,8 @@ Culture shock becomes a prominent issue amongst travelers; it is an issue that c
 * It also includes buttons to initiate and restart the recommendation process.
 
  **Output Page**: 
-  * Here, users will see a list of recommended songs with a play button next to each song, allowing them to preview the music. Similar to the input page, the output page also includes buttons to start the recommendation process anew.
+  * Users will see a list of recommended songs with a play button next to each song, allowing them to preview the music. 
+  * Includes buttons to start the recommendation process anew.
 
 ## Strategy
 To efficiently store and recommend music, we plan to implement the following strategies:
