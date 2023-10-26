@@ -1,4 +1,10 @@
 # TravelSync
+![Logo]("")
+
+## Navigation to other Docs
+- [Spotipy](Packages%20-%20Examples/Spotipy/README_Spotipy.MD)    
+- [Django](Packages%20-%20Examples/Django/README_Django.md)
+
 ## Problem
 Imagine you are an avid traveler, and you like traveling to other countries to experience their rich cultures. Aside from visiting monuments, eating new cuisine, and taking memorable pictures, music becomes an outlet to experience culture through a new lens. Unfortunately, travelers are unfamiliar with local music genres and musicians, limiting their impression of a country's creative realm.
 
@@ -27,7 +33,8 @@ Culture shock becomes a prominent issue amongst travelers; it is an issue that c
 * It also includes buttons to initiate and restart the recommendation process.
 
  **Output Page**: 
-  * Here, users will see a list of recommended songs with a play button next to each song, allowing them to preview the music. Similar to the input page, the output page also includes buttons to start the recommendation process anew.
+  * Users will see a list of recommended songs with a play button next to each song, allowing them to preview the music. 
+  * Includes buttons to start the recommendation process anew.
 
 ## Strategy
 To efficiently store and recommend music, we plan to implement the following strategies:
