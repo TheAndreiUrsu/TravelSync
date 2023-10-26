@@ -11,7 +11,7 @@
 * Admin Site
 * Object-relational mapper
     - Querys data without SQL
-* Authentication
+* AuthenticationSSS
 * Caching
 
 # How does a website work?
@@ -19,6 +19,9 @@
 * Loaded on the client machine, think user interface
 ### Backend
 * Runs on a server, responsible for data
+### HTTP Request
+* On URL click, Client sends a request to Server and asks to retrieve the home page
+* Server responds with the home page
 
 
 # Important Links
