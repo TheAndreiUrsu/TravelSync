@@ -1,3 +1,4 @@
+![Spotipy](https://avatars.githubusercontent.com/u/117038620?s=200&v=4)
 # How to use Spotipy Package
 * Install the Necessary Packages
 * Follow the tutorial
@@ -8,7 +9,7 @@
 * [pip install spotipy](https://spotipy.readthedocs.io/)
 * [pip install requests](https://pypi.org/project/requests/)
 
-## Important Links
+# Important Links
 * [Authenticating](https://www.youtube.com/watch?v=kaBVN8uP358&t=0s)
 * [Tutorial](https://www.youtube.com/watch?v=WAmEZBEeNmg)
 
