@@ -35,7 +35,7 @@ def get_token():
 def get_auth_header(token):
     return {"Authorization": "Bearer " + token}
 
-def search_for_artist(token, artist_name):
+def search(token, artist_name):
     url = "https://api.spotify.com/v1/search"
     headers = get_auth_header(token)
     query = f"?q={artist_name}&type=artist&limit=1"
@@ -59,10 +59,10 @@ def get_songs_by_artist(token, artist_id):
 
 
 token = get_token()
-result = search_for_artist(token, "The Weeknd")
-print(result)
-artist_id = result["id"]
-songs = get_songs_by_artist(token, artist_id)
+result = [search(token, "The Weeknd"), search(token, "Queen")]
+print(result[1])
+#artist_id = result["id"]
+#songs = get_songs_by_artist(token, artist_id)
 
 # Displays the top tracks from the artist in the country.
 '''for idx, song in enumerate(songs):
