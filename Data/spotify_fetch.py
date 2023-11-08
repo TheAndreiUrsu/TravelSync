@@ -13,6 +13,7 @@ client_id = os.getenv("CLIENT_ID")
 # Load client secret
 client_secret = os.getenv("CLIENT_SECRET")
 
+
 # gets the token by hashing the client id and client secret
 def get_token():
     auth_string = client_id + ":" + client_secret
@@ -35,10 +36,24 @@ def get_token():
 def get_auth_header(token):
     return {"Authorization": "Bearer " + token}
 
-def search(token, artist_name):
+def search_for_artist(token, artist_name):
     url = "https://api.spotify.com/v1/search"
     headers = get_auth_header(token)
     query = f"?q={artist_name}&type=artist&limit=1"
+
+    query_url = url + query
+    result = get(query_url, headers=headers)
+    json_result = json.loads(result.content)["artists"]["items"]
+    if len(json_result) == 0:
+        print("No artist exists.")
+        return None
+    
+    return json_result[0]
+
+def search_for_genre(token, genre):
+    url = "https://api.spotify.com/v1/search"
+    headers = get_auth_header(token)
+    query = f"?q={genre}&type=artist&limit=1"
 
     query_url = url + query
     result = get(query_url, headers=headers)
