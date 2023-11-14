@@ -144,6 +144,14 @@ def get_songs_from_playlist(token, playlist_endpoint):
     json_res = json.loads(result.content)
     return json_res
 
+# to get the genres, search by artist and return the genres
+def get_genres(token, artist_id):
+    url = f"https://api.spotify.com/v1/artists/{artist_id}"
+    headers = get_auth_header(token)
+    result = get(url, headers=headers)
+    json_res = json.loads(result.content)
+    return json_res
+
 #top_songs = get_songs_from_playlist(token, top_50)
 #with open("Data/top_songs_ES.json", "w") as outfile:
 #    json.dump(top_songs, outfile)
@@ -159,28 +167,40 @@ songs = songs['tracks']['items']
 
 song_dict = {}
 
+
 songs = songs[0]
 song_track = songs['track']
 
-song_dict["Song_ID"] = song_track['id']
-song_dict["Title"] = song_track['name']
-song_dict["Artist"] = song_track['artists'][0]['name']
-song_dict["Popularity"] = song_track['popularity']
-song_dict["Explicity"] = song_track['explicit']
+song_dict[song_track['id']] = {}
+_song = song_dict[song_track['id']]
+_song['title'] = song_track['name']
+_song['popularity'] = song_track['popularity']
+_song['explicit'] = song_track['explicit']
+genres = get_genres(token, song_track['artists'][0]['id'])
+_song['genres'] = genres['genres']
+for idx, e in enumerate(song_track['artists'][0]):
+    print(e)
+# song__ = song_dict['id']
+# song__['id'] = song_track['id']
+# song__['title'] = song_track['name']
+# song__['popularity'] = song_track['popularity']
+# song__['explicit'] = song_track['explicit']
 
+# song_artist = song_track['artists'][0]
 
-song_artist = song_track['artists'][0]
+# song_dict['artist'] = {}
+# artist_dict = song_dict['artist']
+# artist_dict["id"] = song_artist['id']
+# artist_dict["name"] = song_artist['name']
 
-artist_dict = {}
-artist_dict["Artist_ID"] = song_artist['id']
-artist_dict["Name"] = song_artist['name']
-print(artist_dict)
-
-# to get the genres, search by artist and return the genres
-
+# genres = get_genres(token, artist_dict.get("id"))['genres']
+# song__['genres'] = genres
 
 
 print(song_dict)
+
+with open("Data/songs_meta.json","w") as outfile:
+    json.dump(song_dict, outfile)
 
 
 # for idx, e in enumerate(songs):
