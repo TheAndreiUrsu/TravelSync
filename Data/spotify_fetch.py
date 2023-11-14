@@ -72,10 +72,50 @@ def get_songs_by_artist(token, artist_id):
     json_result = json.loads(result.content)["tracks"]
     return json_result
 
+def get_countries(token):
+    url = f"https://api.spotify.com/v1/markets"
+    headers = get_auth_header(token)
+    result = get(url, headers=headers)
+    json_result = json.loads(result.content)
+    return json_result
 
-token = get_token()
-result = [search(token, "The Weeknd"), search(token, "Queen")]
-print(result[1])
+
+#token = get_token()
+#result = [search_for_artist(token, "The Weeknd"), search_for_artist(token, "Queen")]
+#print(result[1])
+
+country_json = open("Data/countries.json")
+country_data = json.load(country_json)
+
+# for i in country_data['markets']:
+#     print(i)
+
+print(f"Number of countries supported by Spotify: {len(country_data['markets'])}")
+
+import pycountry
+
+def get_country_name(code):
+    country = pycountry.countries.get(alpha_2=code.upper())
+    if(country is not None):
+        return country.name
+
+countries = []
+for i in country_data['markets']:
+    countries.append(get_country_name(i))
+
+list(countries)
+print(countries)
+
+#get countries avaliable
+# countries = get_countries(token)
+# with open("Data/countries.json", "w") as outfile:
+#     json.dump(countries, outfile)
+
+
+# test writing to music_data.json
+# with open("Data/music_data.json", "w") as outfile:
+#     json.dump(result, outfile)
+
 #artist_id = result["id"]
 #songs = get_songs_by_artist(token, artist_id)
 
