@@ -62,7 +62,7 @@ def get_songs_by_artist(token, artist_id):
 
 
 token = get_token()
-result = search_for_artist(token, "The Weeknd")
+result = search_for_artist(token, "Taylor Swift")
 artist_id = result["id"]
 songs = get_songs_by_artist(token, artist_id)
 
@@ -71,5 +71,4 @@ for idx, song in enumerate(songs):
     print(f"{idx+1}. {song['name']}")
 
 #print(result["name"])
-#print(token)
-    
+#print(token)   
