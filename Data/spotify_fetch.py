@@ -104,7 +104,36 @@ for i in country_data['markets']:
     countries.append(get_country_name(i))
 
 list(countries)
-print(countries)
+#print(countries)
+
+
+token = get_token()
+
+import random
+
+# get a top 50 playlist from a random country
+def get_top_50(token, country_code):
+    url = f"https://api.spotify.com/v1/browse/featured-playlists/"
+    query = f"?country={country_code}&limit=5"
+    query_url = url + query
+    headers = get_auth_header(token)
+    result = get(query_url, headers=headers)
+    json_result = json.loads(result.content)
+    return json_result['playlists']['items']
+
+#rng = random.randint(0, len(country_data['markets'])-1)
+top_50 = get_top_50(token, "NP")
+
+'''country_data['markets'][rng]'''
+
+#print(f"Country: {get_country_name(country_data['markets'][rng])} & Code: {country_data['markets'][rng]}")
+#print(top_50[0]['external_urls'])
+
+if(top_50[0]['external_urls']['spotify'] == "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M"):
+    [print(top_50[i]['external_urls']) for i in range(1,5)]
+else:
+    [print(top_50[i]['external_urls']) for i in range(5)]
+
 
 #get countries avaliable
 # countries = get_countries(token)
