@@ -119,21 +119,72 @@ def get_top_50(token, country_code):
     headers = get_auth_header(token)
     result = get(query_url, headers=headers)
     json_result = json.loads(result.content)
-    return json_result['playlists']['items']
+    return json_result['playlists']['items'][0]['href']
 
 #rng = random.randint(0, len(country_data['markets'])-1)
-top_50 = get_top_50(token, "NP")
+#top_50 = get_top_50(token, "ES")
 
 '''country_data['markets'][rng]'''
+
+#print(top_50)
 
 #print(f"Country: {get_country_name(country_data['markets'][rng])} & Code: {country_data['markets'][rng]}")
 #print(top_50[0]['external_urls'])
 
-if(top_50[0]['external_urls']['spotify'] == "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M"):
-    [print(top_50[i]['external_urls']) for i in range(1,5)]
-else:
-    [print(top_50[i]['external_urls']) for i in range(5)]
+# if(top_50[0]['external_urls']['spotify'] == "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M"):
+#     [print(top_50[i]['external_urls']) for i in range(1,5)]
+# else:
+#     [print(top_50[i]['external_urls']) for i in range(5)]
 
+
+def get_songs_from_playlist(token, playlist_endpoint):
+    url = playlist_endpoint
+    headers = get_auth_header(token)
+    result = get(url, headers=headers)
+    json_res = json.loads(result.content)
+    return json_res
+
+#top_songs = get_songs_from_playlist(token, top_50)
+#with open("Data/top_songs_ES.json", "w") as outfile:
+#    json.dump(top_songs, outfile)
+#print(top_songs)
+
+song_json = open("Data/top_songs_ES.json")
+songs = json.load(song_json)
+songs = songs['tracks']['items']
+# name = songs['tracks']['items'][0]['track']['name']
+# song_id = 
+
+#[print(f"{i+1}: {e['track']['name']}") for i, e in enumerate(songs)]
+
+song_dict = {}
+
+songs = songs[0]
+song_track = songs['track']
+
+song_dict["Song_ID"] = song_track['id']
+song_dict["Title"] = song_track['name']
+song_dict["Artist"] = song_track['artists'][0]['name']
+song_dict["Popularity"] = song_track['popularity']
+song_dict["Explicity"] = song_track['explicit']
+
+
+song_artist = song_track['artists'][0]
+
+artist_dict = {}
+artist_dict["Artist_ID"] = song_artist['id']
+artist_dict["Name"] = song_artist['name']
+print(artist_dict)
+
+# to get the genres, search by artist and return the genres
+
+
+
+print(song_dict)
+
+
+# for idx, e in enumerate(songs):
+#     print(e)
 
 #get countries avaliable
 # countries = get_countries(token)
