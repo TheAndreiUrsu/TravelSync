@@ -1,0 +1,19 @@
+{
+    "song": {
+        "id": "2kz1YOhJiNubjigR1gB1VX",
+        "title": "DILUVIO",
+        "popularity": 87,
+        "explicit": true,
+        "genres": [
+            "puerto rican pop",
+            "reggaeton",
+            "trap latino",
+            "urbano latino"
+        ],
+        "duration_s" : 197.052
+    },
+    "artist": {
+        "id": "1mcTU81TzQhprhouKaTkpq",
+        "name": "Rauw Alejandro"
+    }
+}
