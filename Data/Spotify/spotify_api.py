@@ -13,7 +13,6 @@ client_id = os.getenv("CLIENT_ID")
 # Load client secret
 client_secret = os.getenv("CLIENT_SECRET")
 
-
 # gets the token by hashing the client id and client secret
 def get_token():
     auth_string = client_id + ":" + client_secret
@@ -50,6 +49,7 @@ def search_for_artist(token, artist_name):
     
     return json_result[0]
 
+# Searches for genre
 def search_for_genre(token, genre):
     url = "https://api.spotify.com/v1/search"
     headers = get_auth_header(token)
@@ -64,6 +64,7 @@ def search_for_genre(token, genre):
     
     return json_result[0]
 
+# Searches songs from artists\
 def get_songs_by_artist(token, artist_id):
     # searching for a specific artist and getting their top tracks in the US
     url = f"https://api.spotify.com/v1/artists/{artist_id}/top-tracks?country=US"
@@ -72,6 +73,7 @@ def get_songs_by_artist(token, artist_id):
     json_result = json.loads(result.content)["tracks"]
     return json_result
 
+# Gets the available countries for Spotify
 def get_countries(token):
     url = f"https://api.spotify.com/v1/markets"
     headers = get_auth_header(token)
@@ -121,20 +123,20 @@ def get_top_50(token, country_code):
     json_result = json.loads(result.content)
     return json_result['playlists']['items'][0]['href']
 
-#rng = random.randint(0, len(country_data['markets'])-1)
-#top_50 = get_top_50(token, "ES")
+rng = random.randint(0, len(country_data['markets'])-1)
+top_50 = get_top_50(token, "ES")
 
 '''country_data['markets'][rng]'''
 
 #print(top_50)
 
 #print(f"Country: {get_country_name(country_data['markets'][rng])} & Code: {country_data['markets'][rng]}")
-#print(top_50[0]['external_urls'])
+print(top_50[0]['external_urls'])
 
-# if(top_50[0]['external_urls']['spotify'] == "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M"):
-#     [print(top_50[i]['external_urls']) for i in range(1,5)]
-# else:
-#     [print(top_50[i]['external_urls']) for i in range(5)]
+if(top_50[0]['external_urls']['spotify'] == "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M"):
+    [print(top_50[i]['external_urls']) for i in range(1,5)]
+else:
+    [print(top_50[i]['external_urls']) for i in range(5)]
 
 
 def get_songs_from_playlist(token, playlist_endpoint):
@@ -144,17 +146,9 @@ def get_songs_from_playlist(token, playlist_endpoint):
     json_res = json.loads(result.content)
     return json_res
 
-# to get the genres, search by artist and return the genres
-def get_genres(token, artist_id):
-    url = f"https://api.spotify.com/v1/artists/{artist_id}"
-    headers = get_auth_header(token)
-    result = get(url, headers=headers)
-    json_res = json.loads(result.content)
-    return json_res
-
-#top_songs = get_songs_from_playlist(token, top_50)
-#with open("Data/top_songs_ES.json", "w") as outfile:
-#    json.dump(top_songs, outfile)
+top_songs = get_songs_from_playlist(token, top_50)
+with open("Data/top_songs_ES.json", "w") as outfile:
+   json.dump(top_songs, outfile)
 #print(top_songs)
 
 song_json = open("Data/top_songs_ES.json")
@@ -162,24 +156,35 @@ songs = json.load(song_json)
 songs = songs['tracks']['items']
 # name = songs['tracks']['items'][0]['track']['name']
 # song_id = 
-
 #[print(f"{i+1}: {e['track']['name']}") for i, e in enumerate(songs)]
+# song_track = songs[0]['track']
+# for idx, e in enumerate(song_track['artists'][0]):
+#     print(e)
+
 
 song_dict = {}
+for i in range(len(songs)):
+
+    songs_ = songs[i]
+    song_track = songs_['track']
 
 
-songs = songs[0]
-song_track = songs['track']
+    song_dict[song_track['id']] = {}
+    _song = song_dict[song_track['id']]
+    _song['title'] = song_track['name']
+    _song['artist'] = song_track['artists'][0]['name']
+    _song['popularity'] = song_track['popularity']
+    _song['explicit'] = song_track['explicit']
+    genres = get_genres(token, song_track['artists'][0]['id'])
+    _song['genres'] = genres['genres']
+    _song['duration_s'] = song_track['duration_ms'] / 1000
 
-song_dict[song_track['id']] = {}
-_song = song_dict[song_track['id']]
-_song['title'] = song_track['name']
-_song['popularity'] = song_track['popularity']
-_song['explicit'] = song_track['explicit']
-genres = get_genres(token, song_track['artists'][0]['id'])
-_song['genres'] = genres['genres']
-for idx, e in enumerate(song_track['artists'][0]):
-    print(e)
+    with open("Data/dataset/songs_meta.json","w") as outfile:
+        json.dump(song_dict, outfile)
+
+
+
+
 # song__ = song_dict['id']
 # song__['id'] = song_track['id']
 # song__['title'] = song_track['name']
@@ -197,10 +202,8 @@ for idx, e in enumerate(song_track['artists'][0]):
 # song__['genres'] = genres
 
 
-print(song_dict)
 
-with open("Data/songs_meta.json","w") as outfile:
-    json.dump(song_dict, outfile)
+# print(song_dict)
 
 
 # for idx, e in enumerate(songs):
