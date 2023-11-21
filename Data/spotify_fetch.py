@@ -178,6 +178,7 @@ _song['popularity'] = song_track['popularity']
 _song['explicit'] = song_track['explicit']
 genres = get_genres(token, song_track['artists'][0]['id'])
 _song['genres'] = genres['genres']
+_song['duration_s'] = song_track['duration_ms'] / 1000
 for idx, e in enumerate(song_track['artists'][0]):
     print(e)
 # song__ = song_dict['id']
