@@ -121,7 +121,7 @@ def get_top_50_url(token, country_code):
 
 # Gets songs from a playlist
 def get_songs_from_playlist(token, playlist_endpoint):
-    url = playlist_endpoint
+    url = f"https://api.spotify.com/v1/playlists/{playlist_endpoint}"
     headers = get_auth_header(token)
     result = get(url, headers=headers)
     json_res = json.loads(result.content)
