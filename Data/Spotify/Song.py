@@ -1,9 +1,10 @@
 class Song:
     def __init__(self, name, artist, genre, ex, time, dance, nrg, key, loud, speech, acoustic,
-               ins, live, valence, tempo):
+               ins, live, valence, tempo, URL=""):
         self.name = name
         self.artist = artist
-        self.genre = genre
+        genre = genre.strip("\'()")
+        self.genre = tuple(map(str,genre.split(',')))
         self.ex = ex
         self.time = time
         self.dance = dance
@@ -16,6 +17,7 @@ class Song:
         self.live = live
         self.valence = valence
         self.tempo = tempo
+        self.url = URL
 
 def CalculateSimilarities(song1, song2):
     returnValue = 0.00
