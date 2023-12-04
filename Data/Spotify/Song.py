@@ -16,12 +16,13 @@ class Song:
         self.live = live
         self.valence = valence
         self.tempo = tempo
+        self.isVisited = False
 
 def CalculateSimilarities(song1, song2):
     returnValue = 0.00
     if not(song1.artist == song2.artist):
         returnValue += 0.05
-    returnValue += ((abs(float(song1.tempo) - float(song2.tempo))) / 100)
+    #returnValue += ((abs(float(song1.tempo) - float(song2.tempo))) / 100)
     returnValue += (abs(float(song1.dance) - float(song2.dance)))
     returnValue += (abs(float(song1.nrg) - float(song2.nrg)))
     if not(song1.key == song2.key):
