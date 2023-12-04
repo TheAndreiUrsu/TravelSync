@@ -6,6 +6,7 @@ from .serializers import userSerializer
 from .serializers import songsSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from .scripts import Song as S
 
 # Create your views here.
 class userView(generics.CreateAPIView):
@@ -35,11 +36,19 @@ class userInfo(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     def personalizedPlaylist(self, genre, country_to, duration_playlist):
-        playlistResult = {
-            'genre': genre,
-            'country_to': country_to,
+        top_songs = TopSongs.objects.filter(country=country_to)[:duration_playlist]
+        
+        #call mts
+
+        playlistResult = [{
+            'name': song.name,
+            'artist': song.artist,
             'duration_playlist': duration_playlist,
-        }
+        }for song in top_songs]
+
+        for song in top_songs:
+            print(f"Song: {song.name} | Artist: {song.artist}")
+
         return playlistResult
 
 class songView(generics.CreateAPIView):
