@@ -37,5 +37,4 @@ def CalculateSimilarities(song1, song2, genre):
     returnValue += (abs(float(song1.acoustic) - float(song2.acoustic)))
     returnValue += (abs(float(song1.ins) - float(song2.ins)))
     returnValue += (abs(float(song1.valence) - float(song2.valence)))
-    #print(returnValue)
     return returnValue
