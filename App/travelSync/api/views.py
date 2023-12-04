@@ -24,8 +24,9 @@ class userInfo(APIView):
             genre = serializer.validated_data.get('genre')
             country_to = serializer.validated_data.get('countryTo')
             duration_playlist = serializer.validated_data.get('durationPlaylist')
-            user = userInformation.objects.create(name=name, genre=genre, countryTo=country_to, durationPlaylist=duration_playlist)
-            result=self.personalizedPlaylist(genre, country_to, duration_playlist)
+            country_from=serializer.validated_data.get('countryFrom')
+            user = userInformation.objects.create(name=name, genre=genre, countryTo=country_to, durationPlaylist=duration_playlist, countryFrom=country_from)
+            result=self.personalizedPlaylist(genre, country_to, duration_playlist, country_from)
 
             collectedData={
                 'user': userSerializer(user).data,
@@ -35,7 +36,7 @@ class userInfo(APIView):
             return Response(collectedData, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-    def personalizedPlaylist(self, genre, country_to, duration_playlist):
+    def personalizedPlaylist(self, genre, country_to, duration_playlist, country_from):
         top_songs = TopSongs.objects.filter(country=country_to)
         
         # Creating a graph
@@ -59,23 +60,9 @@ class userInfo(APIView):
             'name': song.name,
             'artist': song.artist,
             'duration_playlist': duration_playlist,
-        }for song in top_songs]
+        } for song in top_songs]
 
         # for song in top_songs:
-        #     print(f"Song: {song.name} | Artist: {song.artist}")
+        #     print(f"   1 : {song.name.encode('utf-8').decode('utf-8')},Artist: {song.artist}")
 
         return playlistResult
-
-class songView(generics.CreateAPIView):
-    queryset=TopSongs.objects.all()
-    serializer_class=songsSerializer
-
-class songInfo(APIView):
-    serializer_class=songsSerializer
-
-    def get(self, request, format=None):
-        top_songs = TopSongs.objects.all()[:5]
-        
-        serializer = self.serializer_class(top_songs,many=True)
-        return Response(serializer.data)
-            
