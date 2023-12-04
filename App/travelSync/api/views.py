@@ -23,8 +23,9 @@ class userInfo(APIView):
             genre = serializer.validated_data.get('genre')
             country_to = serializer.validated_data.get('countryTo')
             duration_playlist = serializer.validated_data.get('durationPlaylist')
-            user = userInformation.objects.create(name=name, genre=genre, countryTo=country_to, durationPlaylist=duration_playlist)
-            result=self.personalizedPlaylist(genre, country_to, duration_playlist)
+            country_from=serializer.validated_data.get('countryFrom')
+            user = userInformation.objects.create(name=name, genre=genre, countryTo=country_to, durationPlaylist=duration_playlist, countryFrom=country_from)
+            result=self.personalizedPlaylist(genre, country_to, duration_playlist, country_from)
 
             collectedData={
                 'user': userSerializer(user).data,
