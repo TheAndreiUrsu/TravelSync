@@ -66,6 +66,9 @@ export default class SmallPlaylist extends Component{
                 </Typography>
                 <Button color="primary" variant="contained" to="/" component={Link}>Back</Button>
             </Grid>    
+                </Typography>
+                <Button color="primary" variant="contained" to="/" component={Link}>Back</Button>
+            </Grid>    
         </Grid>
         
         );

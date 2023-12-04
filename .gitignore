@@ -1,4 +1,3 @@
-
 App/travelSync/travelSync/__pycache__/wsgi.cpython-311.pyc
 App/travelSync/travelSync/__pycache__/urls.cpython-311.pyc
 App/travelSync/travelSync/__pycache__/settings.cpython-311.pyc
@@ -22,3 +21,7 @@ App/travelSync/api/__pycache__/models.cpython-311.pyc
 App/travelSync/api/__pycache__/apps.cpython-311.pyc
 App/travelSync/api/__pycache__/admin.cpython-311.pyc
 App/travelSync/api/__pycache__/__init__.cpython-311.pyc
+Data/dataset/kaggle/top_songs_per_country.csv
+Data/dataset/countries.txt
+Data/Spotify/test.ipynb
+Data/Spotify/main.ipynb
