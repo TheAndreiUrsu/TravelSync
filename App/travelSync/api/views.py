@@ -6,6 +6,7 @@ from .serializers import userSerializer
 from .serializers import songsSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from travelSync.scripts import song as S
 
 # Create your views here.
 class userView(generics.CreateAPIView):
@@ -37,6 +38,8 @@ class userInfo(APIView):
     def personalizedPlaylist(self, genre, country_to, duration_playlist):
         top_songs = TopSongs.objects.filter(country=country_to)[:duration_playlist]
         
+        # call mts
+
         playlistResult = [{
             'name': song.name,
             'artist': song.artist,
@@ -44,6 +47,6 @@ class userInfo(APIView):
         } for song in top_songs]
 
         for song in top_songs:
-            print(f"song: {song.name.encode('utf-8').decode('utf-8')},Artist: {song.artist}")
+            print(f"   1 : {song.name.encode('utf-8').decode('utf-8')},Artist: {song.artist}")
 
         return playlistResult

@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import SmallPlaylist from "./smallPlaylist";
+<<<<<<< HEAD
+=======
+import LargePlaylist from "./largePlaylist";
+>>>>>>> main
 import{ BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
@@ -199,6 +203,10 @@ export default class Home extends Component{
                         </Grid>
                     </Route>
                     <Route exact path="/smallPlaylist" component={SmallPlaylist}/>
+<<<<<<< HEAD
+=======
+                    <Route exact path="/largePlaylist" component={LargePlaylist}/>
+>>>>>>> main
                 </Switch>
             </Router>
             
