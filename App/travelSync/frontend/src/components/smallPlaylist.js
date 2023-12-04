@@ -20,39 +20,24 @@ export default class SmallPlaylist extends Component{
     render(){
         const user = JSON.parse(localStorage.getItem('user'));
         const playlist = JSON.parse(localStorage.getItem('playlist'));
-        if(!playlist){
-            return <div>No infromation of user</div>;
-        }
 
         return (
         <Grid container spacing={1}>
             <Grid item xs={12} align="center">
                 <Typography component="h4" variant="h4">Small Playlist</Typography>
-            </Grid>    
-            <Grid item xs={12} align="center">
-                <FormControl component="fieldset">
-                    <FormHelperText>
-                        <div align='center'>
-                            Curated list of songs
-                        </div>
-                    </FormHelperText>
-                </FormControl>
-            </Grid>
-            <Grid item xs={12} align="center">
-                <Button color="primary" variant="contained" to="/" component={Link}>Back</Button>
-            </Grid>
-            <Grid item xs={12} align="center">
-            <div>
-                <h2>Personalized Playlist</h2>
-                {playlist && (
+                <Typography component="h6" variant="h6">Curated Playlist</Typography>
+                <Typography component="subtitle1" variant="subtitle1">{user.name}'s Personalized Playlist</Typography>
+                <Typography component="body1" variant="body1">
+                    {playlist && (
                     <>
                         <p>Your genre is {playlist.genre}</p>
                         <p>The country you are traveling to is {playlist.country_to}</p>
                         <p>How many songs you want in the playlist is {playlist.duration_playlist}</p>
                     </>
                 )}
-            </div> 
-            </Grid>
+                </Typography>
+                <Button color="primary" variant="contained" to="/" component={Link}>Back</Button>
+            </Grid>    
         </Grid>
         
         );
