@@ -86,7 +86,7 @@ def get_countries(token):
 #result = [search_for_artist(token, "The Weeknd"), search_for_artist(token, "Queen")]
 #print(result[1])
 
-country_json = open("Data/countries.json")
+country_json = open("Data/dataset/spotify_api/countries.json")
 country_data = json.load(country_json)
 
 # for i in country_data['markets']:
