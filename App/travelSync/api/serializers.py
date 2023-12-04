@@ -5,7 +5,7 @@ from .models import TopSongs
 class userSerializer(serializers.ModelSerializer):
     class Meta:
         model=userInformation
-        fields= ('name','genre', 'countryTo','durationPlaylist')
+        fields= ('name','genre', 'countryTo','durationPlaylist', 'countryFrom')
 
 class songsSerializer(serializers.ModelSerializer):
     class Meta:
