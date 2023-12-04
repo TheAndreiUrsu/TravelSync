@@ -6,7 +6,7 @@ from .serializers import userSerializer
 from .serializers import songsSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from travelSync.scripts import song as S
+from .scripts import Graphy as G, Sorty
 
 # Create your views here.
 class userView(generics.CreateAPIView):
@@ -36,10 +36,25 @@ class userInfo(APIView):
             return Response(collectedData, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-    def personalizedPlaylist(self, genre, country_to, duration_playlist):
-        top_songs = TopSongs.objects.filter(country=country_to)[:duration_playlist]
+    def personalizedPlaylist(self, genre, country_to, duration_playlist, country_from):
+        top_songs = TopSongs.objects.filter(country=country_to)
         
-        # call mts
+        # Creating a graph
+        g = G.Graph(songDB=top_songs,country=country_to,genre=genre)
+        #call mts
+
+        songs = g.MST(duration_playlist)
+
+        songs_merge_name = Sorty.merge_sort(songs)
+        songs_merge_artist = Sorty.merge_sort(songs,"")
+        songs_quick_name = Sorty.quick_sort(songs)
+        songs_quick_artist = Sorty.quick_sort(songs,"")
+
+        print(f"Songs Unsorted:{songs}")
+        print(f"Songs sorted with merge sort by song name: {songs_merge_name}")
+        print(f"Songs sorted with merge sort by artist name: {songs_merge_artist}")
+        print(f"Songs sorted with quick sort by song name: {songs_quick_name}")
+        print(f"Songs sorted with quick sort by artist name: {songs_quick_artist}")
 
         playlistResult = [{
             'name': song.name,
@@ -47,7 +62,7 @@ class userInfo(APIView):
             'duration_playlist': duration_playlist,
         } for song in top_songs]
 
-        for song in top_songs:
-            print(f"   1 : {song.name.encode('utf-8').decode('utf-8')},Artist: {song.artist}")
+        # for song in top_songs:
+        #     print(f"   1 : {song.name.encode('utf-8').decode('utf-8')},Artist: {song.artist}")
 
         return playlistResult
