@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from .models import userInformation
+from .models import TopSongs
 from rest_framework import generics, status
 from .serializers import userSerializer
+from .serializers import songsSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -40,3 +42,16 @@ class userInfo(APIView):
         }
         return playlistResult
 
+class songView(generics.CreateAPIView):
+    queryset=TopSongs.objects.all()
+    serializer_class=songsSerializer
+
+class songInfo(APIView):
+    serializer_class=songsSerializer
+
+    def get(self, request, format=None):
+        top_songs = TopSongs.objects.all()[:5]
+        
+        serializer = self.serializer_class(top_songs,many=True)
+        return Response(serializer.data)
+            
