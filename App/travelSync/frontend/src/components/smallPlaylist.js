@@ -21,13 +21,13 @@ export default class SmallPlaylist extends Component{
         const user = JSON.parse(localStorage.getItem('user'));
         const playlist = JSON.parse(localStorage.getItem('playlist'));
         if(!playlist){
-            return <div>No infromation of user</div>;
+            return <div>Nothing to see here.</div>;
         }
 
         return (
         <Grid container spacing={1}>
             <Grid item xs={12} align="center">
-                <Typography component="h4" variant="h4">Small Playlist</Typography>
+                <Typography component="h4" variant="h4">Personalized Playlist</Typography>
             </Grid>    
             <Grid item xs={12} align="center">
                 <FormControl component="fieldset">
@@ -41,14 +41,18 @@ export default class SmallPlaylist extends Component{
             <Grid item xs={12} align="center">
                 <Button color="primary" variant="contained" to="/" component={Link}>Back</Button>
             </Grid>
+
             <Grid item xs={12} align="center">
             <div>
                 <h2>Personalized Playlist</h2>
                 {playlist && (
                     <>
-                        <p>Your genre is {playlist.genre}</p>
-                        <p>The country you are traveling to is {playlist.country_to}</p>
-                        <p>How many songs you want in the playlist is {playlist.duration_playlist}</p>
+                        <p>Playlist size: {playlist.length}</p>
+                        <ul>
+                            {playlist.map((song, index) => (
+                                <p>{index+1}: {song.name} by {song.artist}</p>
+                            ))}
+                        </ul>
                     </>
                 )}
             </div> 

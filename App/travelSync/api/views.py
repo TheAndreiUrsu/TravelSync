@@ -35,23 +35,15 @@ class userInfo(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     def personalizedPlaylist(self, genre, country_to, duration_playlist):
-        playlistResult = {
-            'genre': genre,
-            'country_to': country_to,
-            'duration_playlist': duration_playlist,
-        }
-        return playlistResult
-
-class songView(generics.CreateAPIView):
-    queryset=TopSongs.objects.all()
-    serializer_class=songsSerializer
-
-class songInfo(APIView):
-    serializer_class=songsSerializer
-
-    def get(self, request, format=None):
-        top_songs = TopSongs.objects.all()[:5]
+        top_songs = TopSongs.objects.filter(country=country_to)[:duration_playlist]
         
-        serializer = self.serializer_class(top_songs,many=True)
-        return Response(serializer.data)
-            
+        playlistResult = [{
+            'name': song.name,
+            'artist': song.artist,
+            'duration_playlist': duration_playlist,
+        } for song in top_songs]
+
+        for song in top_songs:
+            print(f"song: {song.name.encode('utf-8').decode('utf-8')},Artist: {song.artist}")
+
+        return playlistResult
