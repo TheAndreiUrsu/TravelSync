@@ -4,6 +4,7 @@ import{ BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Select from "@material-ui/core/Select";
+import Select from "@material-ui/core/Select";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import FormHelperText from "@material-ui/core/FormHelperText";
@@ -17,6 +18,7 @@ export default class Home extends Component{
     constructor(props){
         super(props);
         this.state={
+            validationError: false,
             name:"",
             countryTo: "",
             countryFrom:"",
@@ -34,18 +36,27 @@ export default class Home extends Component{
     handleName(object){
         this.setState({
             name: object.target.value,
+            validationError:false
         });
     }
 
     handleGenre(object){
         this.setState({
             genre: object.target.value,
+            validationError:false
         });
     }
 
     handleCountryTo(object){
         this.setState({
             countryTo: object.target.value,
+            validationError:false
+        });
+    }
+
+    handleCountryFrom(object){
+        this.setState({
+            countryFrom: object.target.value,
         });
     }
 
@@ -58,6 +69,7 @@ export default class Home extends Component{
     handleDuration(object){
         this.setState({
             durationPlaylist: object.target.value,
+            validationError:false
         });
     }
 
@@ -76,6 +88,7 @@ export default class Home extends Component{
           }),
         };
 
+
       
         fetch('./api/createPlaylist', requestOptions)
           .then((response) => response.json())
@@ -85,7 +98,10 @@ export default class Home extends Component{
                 localStorage.setItem('user', JSON.stringify(data.user));
                 localStorage.setItem('playlist', JSON.stringify(data.playlist));
                 history.push("/smallPlaylist");
+                history.push("/smallPlaylist");
               } 
+          }
+          )
           }
           )
       }
@@ -100,6 +116,7 @@ export default class Home extends Component{
                                 <Typography component="h4" variant="h4">Welcome to TravelSync</Typography>
                             </Grid>
                             <Grid item xs={12} align="center">
+                                <Typography component="h5" variant="h5">Maximize your traveling experience</Typography>
                                 <Typography component="h5" variant="h5">Maximize your traveling experience</Typography>
                             </Grid>
                             <Grid item xs={12} align="center">
@@ -230,10 +247,11 @@ export default class Home extends Component{
                                 </div>
                             </Grid>
                             <Grid item xs={12} align="center">
-                                <div>
-                                <Typography component="h6" variant="h6">Enter the number of songs in the playlist:</Typography>
-                                    <TextField value={this.state.durationPlaylist} required={true} type="number" variant="outlined" placeholder="Number of Songs" onChange={this.handleDuration}  defaultValue="" inputProps={{style:{textAlign:"center"}}} style={{background:'#fafffb'}}></TextField> 
-                                </div>
+                                <FormControl>
+                                    <FormHelperText><div align="center">Enter the number of songs in the playlist: </div></FormHelperText>
+                                    <TextField required={true} type="number" onChange={this.handleDuration}  defaultValue="" inputProps={{style:{textAlign:"center"}}}>
+                                    </TextField>
+                                </FormControl>
                             </Grid>
                             <Grid item xs={12} align="center">
                                 <Button color="secondary" onClick={this.handleCreatePlaylist} variant="contained" component={Link} to={"/smallPlaylist"} disabled={!this.state.name || !this.state.countryTo || !this.state.genre || !this.state.durationPlaylist || !this.state.countryFrom}>Create A Playlist</Button>
@@ -247,4 +265,3 @@ export default class Home extends Component{
           );
          
     }
-}
