@@ -21,7 +21,7 @@ Culture shock becomes a prominent issue amongst travelers; it is an issue that c
   * Utilizing TravelSync will result in a decrease in cultural shock within the users during their stay in a foreign country.
 
 ## Data
- We are using the Spotify API to access music data for various countries. 
+ We are using Kaggle datasets to get the song information. 
 
 ## Tools
 * **Python**: The core programming language for TravelSync.
