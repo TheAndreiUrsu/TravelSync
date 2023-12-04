@@ -3,8 +3,7 @@ class Song:
                ins, live, valence, tempo, URL=""):
         self.name = name
         self.artist = artist
-        genre = genre.strip("\'()")
-        self.genre = tuple(map(str,genre.split(',')))
+        self.genre = genre
         self.ex = ex
         self.time = time
         self.dance = dance
@@ -19,13 +18,18 @@ class Song:
         self.tempo = tempo
         self.isVisited = False
 
-def CalculateSimilarities(song1, song2):
+def CalculateSimilarities(song1, song2, genre):
     returnValue = 0.00
     if not(song1.artist == song2.artist):
         returnValue += 0.05
-    #returnValue += ((abs(float(song1.tempo) - float(song2.tempo))) / 100)
+    returnValue += ((abs(float(song1.tempo) - float(song2.tempo))) / 1000)
+    returnValue += ((abs(float(song1.time) - float(song2.time))) / 100000)
     returnValue += (abs(float(song1.dance) - float(song2.dance)))
     returnValue += (abs(float(song1.nrg) - float(song2.nrg)))
+    if(song1.genre.find(genre) == -1):
+        returnValue += 0.1
+    if(song2.genre.find(genre) == -1):
+        returnValue += 0.1
     if not(song1.key == song2.key):
         returnValue += 0.05
     returnValue += (abs(float(song1.loud) - float(song2.loud)))
