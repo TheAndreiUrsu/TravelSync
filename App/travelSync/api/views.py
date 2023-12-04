@@ -6,6 +6,7 @@ from .serializers import userSerializer
 from .serializers import songsSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from .scripts import Song as S
 
 # Create your views here.
 class userView(generics.CreateAPIView):
