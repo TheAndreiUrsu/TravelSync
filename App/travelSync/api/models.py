@@ -6,7 +6,7 @@ class userInformation(models.Model):
     genre= models.CharField(max_length=8)
     countryTo= models.CharField(max_length=56)
     countryFrom= models.CharField(max_length=56,default="")
-    durationPlaylist=models.IntegerField(null=False; default=1)
+    durationPlaylist=models.IntegerField(null=False, default=1)
 
 class TopSongs(models.Model):
     country=models.TextField()
