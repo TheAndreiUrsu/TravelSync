@@ -57,18 +57,18 @@ class userInfo(APIView):
             size[1] = duration_playlist//2
         else:
             size[0] = size[1] = duration_playlist//2
+            
+        # Remove combined duplicates
+        temp = list(set(songs_from + songs_to))
 
-        songs_from = list(set(songs_from))
-        songs_to = list(set(songs_to))
+        songs_ = temp[:duration_playlist]
 
-        songs_complete = songs_from[:size[0]] + songs_to[:size[1]]
-
-        songs_complete = Sorty.quick_sort(songs_complete)
+        songs_ = Sorty.quick_sort(songs_)
 
         playlistResult = [{
             'name': song[1],
             'artist': song[0],
             'uri': song[2]
-        } for song in songs_complete]
+        } for song in songs_]
 
         return playlistResult
