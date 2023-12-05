@@ -19,7 +19,7 @@ export default class SmallPlaylist extends Component{
 
         return (
 
-        <div style={{ margin: 0, padding: 0, height: '100vh',background: 'linear-gradient(to bottom, #3870E5, #5ae67f)' }}>
+        <div style={{height: '100vh',background: 'linear-gradient(to bottom, #3870E5, #5ae67f)' }}>
          {/* Utilzied stack overflow to determine how to use for loops to output our song list: https://stackoverflow.com/questions/57142732/how-do-i-build-a-sentence-with-link-in-react-using-a-loop*/}
         <Grid container spacing={1} style={{background:'linear-gradient(to bottom, #3870E5, #5ae67f)'}}>
             <Grid item xs={12} align="center">
@@ -35,7 +35,7 @@ export default class SmallPlaylist extends Component{
                         <Grid container spacing={2}>
                             {playlist.map((song, index) => (
                                 <Grid item key={index} xs={12}>
-                                    <Paper style={{ padding: 10, background: "#ffffff", width:'300px'}}>
+                                    <Paper style={{background: "#ffffff", width:'300px'}}>
                                         <Link to={{pathname: song.uri}} target="_blank">
                                             <Typography variant="body1">
                                                 {index + 1}: {song.name} by {song.artist}

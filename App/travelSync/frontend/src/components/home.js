@@ -57,11 +57,16 @@ export default class Home extends Component{
         });
     }
 
-    handleDuration(object){
-        this.setState({
-            durationPlaylist: object.target.value,
-        });
-    }
+    handleDuration = (object) => {
+        const inputValue = object.target.value;
+        const isInvalidInput = !/^\d+$/.test(this.state.durationPlaylist) && this.state.durationPlaylist !== '';
+
+        // Utailized ChatGPT to ask what tests I could run in order to disvalidate nagtive numbers
+        if (/^\d+$/.test(inputValue) || inputValue === '') {
+          this.setState({ durationPlaylist: inputValue });
+        }
+      };
+      
 
     handleCreatePlaylist() {
         const { history } = this.props;
