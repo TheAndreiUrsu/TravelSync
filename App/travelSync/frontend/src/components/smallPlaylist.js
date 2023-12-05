@@ -34,7 +34,7 @@ export default class SmallPlaylist extends Component{
                         <ul>
                             {playlist.map((song, index) => (
                                 <li key={index} style={{ background: "#ffffff" }}>
-                                    <Link to={song.uri}>
+                                    <Link to={{ pathname: song.uri }} target="_blank">
                                         <p>{index + 1}: {song.name} by {song.artist}</p>
                                     </Link>
                                 </li>
