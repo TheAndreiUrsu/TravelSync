@@ -1,3 +1,5 @@
+//Utilzied this tutorial to route each website pages to each other: https://www.youtube.com/watch?v=6c2NqDyxppU&list=PLzMcBGfZo4-kCLWnGmK0jUBmGLaJxvi4j&index=3
+//Utilized this tutorial to create the serializer: https://www.youtube.com/watch?v=YEmjBEDyVSY&list=PLzMcBGfZo4-kCLWnGmK0jUBmGLaJxvi4j&index=4 
 import React, { Component } from "react";
 import SmallPlaylist from "./smallPlaylist";
 import{ BrowserRouter as Router, Switch, Route} from "react-router-dom";
@@ -76,7 +78,7 @@ export default class Home extends Component{
           }),
         };
 
-      
+        //Utilized ChatGPT to find the fetch function that allowed us to push back the user's inputs into the backend 
         fetch('./api/createPlaylist', requestOptions)
           .then((response) => response.json())
           .then((data) => {
@@ -94,6 +96,7 @@ export default class Home extends Component{
         return (
             <Router>
                 <Switch>
+                    {/* Utilized MUI document for the text fields: https://mui.com/material-ui/react-text-field/ */}
                     <Route exact path="/">
                         <Grid container spacing={1} style={{background:'linear-gradient(to bottom, #3870E5, #5ae67f)'}}>
                             <Grid item xs={12} align="center">
@@ -115,7 +118,8 @@ export default class Home extends Component{
                                     <Typography component="h6" variant="h6">Enter the country you are traveling from and to below:</Typography>
                                     <Grid spacing={50} direction="row">
                                         <FormControl>               
-                                            <InputLabel>Country From</InputLabel>   
+                                            <InputLabel>Country From</InputLabel>
+                                            {/*Utalized the tutorial to create the drop down menu: https://www.youtube.com/watch?v=3l8KU_XDlcE*/}   
                                             <Select value={this.state.countryFrom} onChange={this.handleCountryFrom} label="Country From" variant="outlined" style={{ minWidth: '200px', height: '50px', background:'#fafffb' }}>
                                                 <MenuItem value="Argentina">Argentina</MenuItem>
                                                 <MenuItem value="Australia">Australia</MenuItem>
@@ -236,6 +240,7 @@ export default class Home extends Component{
                                 </div>
                             </Grid>
                             <Grid item xs={12} align="center">
+                                {/*Utalized the tutorial to understand how to check for input validation: https://www.youtube.com/watch?v=3l8KU_XDlcE */}
                                 <Button color="secondary" onClick={this.handleCreatePlaylist} variant="contained" component={Link} to={"/smallPlaylist"} disabled={!this.state.name || !this.state.countryTo || !this.state.genre || !this.state.durationPlaylist || !this.state.countryFrom}>Create A Playlist</Button>
                             </Grid>
                         </Grid>

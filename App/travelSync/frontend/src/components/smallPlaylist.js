@@ -1,3 +1,5 @@
+
+{/* Utilzied the MUI docuemtation for Select: https://mui.com/material-ui/react-select/*/}
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
@@ -16,7 +18,9 @@ export default class SmallPlaylist extends Component{
         const playlist = JSON.parse(localStorage.getItem('playlist'));
 
         return (
-            <div style={{ margin: 0, padding: 0, height: '100vh',background: 'linear-gradient(to bottom, #3870E5, #5ae67f)' }}>
+
+        <div style={{ margin: 0, padding: 0, height: '100vh',background: 'linear-gradient(to bottom, #3870E5, #5ae67f)' }}>
+         {/* Utilzied stack overflow to determine how to use for loops to output our song list: https://stackoverflow.com/questions/57142732/how-do-i-build-a-sentence-with-link-in-react-using-a-loop*/}
         <Grid container spacing={1} style={{background:'linear-gradient(to bottom, #3870E5, #5ae67f)'}}>
             <Grid item xs={12} align="center">
                 <Typography component="h4" variant="h4">TravelSync Playlist</Typography>
