@@ -11,7 +11,7 @@ class Graph:
         self.__createGraph(country)
     
     def __createGraph(self,country):
-        self.__list = [sp.Song(name=song.name,artist=song.artist,genre=song.genres,ex=song.explicit,time=song.duration_seconds,dance=song.danceability,nrg=song.energy,key=song.key,loud=song.loudness,speech=song.speechiness,acoustic=song.acoustics,ins=song.instrumentalness,live=song.liveliness,valence=song.valence,tempo=song.tempo) for song in self.__songs]
+        self.__list = [sp.Song(name=song.name,artist=song.artist,genre=song.genres,ex=song.explicit,time=song.duration_seconds,dance=song.danceability,nrg=song.energy,key=song.key,loud=song.loudness,speech=song.speechiness,acoustic=song.acoustics,ins=song.instrumentalness,live=song.liveliness,valence=song.valence,tempo=song.tempo,URL=song.uri) for song in self.__songs]
         self.__songDict = {country : self.__list}
 
         for i in self.__songDict[country]:
@@ -30,6 +30,7 @@ class Graph:
 
         artistList = []
         nameList = []
+        urlList = []
         uniqueSongs = set()
 
         for u,v,a in mst.edges(data=True):
@@ -47,6 +48,7 @@ class Graph:
                 else:
                     uniqueSongs.add((u.artist,u.name))
                     artistList.append(u.artist)
+                urlList.append(u.URL)
                 nameList.append(u.name)
                 buffer = buffer + 1
             if int(buffer) >= int(song_amt):
@@ -64,10 +66,11 @@ class Graph:
                     uniqueSongs.add((v.artist,v.name))
                     artistList.append(v.artist)
                 nameList.append(v.name)
+                urlList.append(v.URL)
                 buffer = buffer + 1
                 if int(buffer) >= int(song_amt):
                     break
-        result = list(zip(artistList, nameList))
+        result = list(zip(artistList, nameList,urlList))
         return result[:song_amt]
 
     def __str__(self):

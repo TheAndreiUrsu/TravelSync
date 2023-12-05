@@ -37,30 +37,33 @@ class userInfo(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     def personalizedPlaylist(self, genre, country_to, duration_playlist, country_from):
-        top_songs = TopSongs.objects.filter(country=country_to)
+        songs_to = TopSongs.objects.filter(country=country_to)
+        songs_from = TopSongs.objects.filter(country=country_from)
         
         # Creating a graph
-        g = G.Graph(songDB=top_songs,country=country_to,genre=genre)
+        g_to = G.Graph(songDB=songs_to,country=country_to,genre=genre)
+        g_from = G.Graph(songDB=songs_from,country=country_from,genre=genre)
         #call mts
 
-        songs = g.MST(duration_playlist)
+        songs_to = g_to.MST(len(songs_to))
+        songs_from = g_from.MST(len(songs_from))
 
-        songs_merge_name = Sorty.merge_sort(songs)
-        songs_merge_artist = Sorty.merge_sort(songs,"")
-        songs_quick_name = Sorty.quick_sort(songs)
-        songs_quick_artist = Sorty.quick_sort(songs,"")
+        # songs_merge_name = Sorty.merge_sort(songs)
+        # songs_merge_artist = Sorty.merge_sort(songs,"")
+        # songs_quick_name = Sorty.quick_sort(songs)
+        # songs_quick_artist = Sorty.quick_sort(songs,"")
 
-        print(f"Songs Unsorted:{songs}")
-        print(f"Songs sorted with merge sort by song name: {songs_merge_name}")
-        print(f"Songs sorted with merge sort by artist name: {songs_merge_artist}")
-        print(f"Songs sorted with quick sort by song name: {songs_quick_name}")
-        print(f"Songs sorted with quick sort by artist name: {songs_quick_artist}")
+        # print(f"Songs Unsorted:{songs}")
+        # print(f"Songs sorted with merge sort by song name: {songs_merge_name}")
+        # print(f"Songs sorted with merge sort by artist name: {songs_merge_artist}")
+        # print(f"Songs sorted with quick sort by song name: {songs_quick_name}")
+        # print(f"Songs sorted with quick sort by artist name: {songs_quick_artist}")
 
         playlistResult = [{
-            'name': song.name,
-            'artist': song.artist,
-            'duration_playlist': duration_playlist,
-        } for song in top_songs]
+            'name': song[1],
+            'artist': song[0],
+            'uri': song[2]
+        } for song in songs_to[:duration_playlist]]
 
         # for song in top_songs:
         #     print(f"   1 : {song.name.encode('utf-8').decode('utf-8')},Artist: {song.artist}")

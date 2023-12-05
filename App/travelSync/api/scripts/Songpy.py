@@ -15,6 +15,7 @@ class Song:
         self.ins = ins
         self.live = live
         self.valence = valence
+        self.URL = URL
         self.tempo = tempo
         self.isVisited = False
 

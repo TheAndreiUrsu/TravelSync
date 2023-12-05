@@ -30,7 +30,7 @@ export default class SmallPlaylist extends Component{
                             {playlist.map((song, index) => (
                                 <Grid item key={index} xs={12}>
                                     <Paper style={{ padding: 10, background: "#ffffff", width:'300px'}}>
-                                        <Link to={song.uri}>
+                                        <Link to={{ pathname: song.uri }} target="_blank">
                                             <Typography variant="body1">
                                                 {index + 1}: {song.name} by {song.artist}
                                             </Typography>
