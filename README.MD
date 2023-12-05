@@ -1,8 +1,5 @@
 # TravelSync
 
-## Navigation to other Docs  
-- [Django](Packages%20-%20Examples/Django/README_Django.md)
-
 ## Problem
 Imagine you are an avid traveler, and you like traveling to other countries to experience their rich cultures. Aside from visiting monuments, eating new cuisine, and taking memorable pictures, music becomes an outlet to experience culture through a new lens. Unfortunately, travelers are unfamiliar with local music genres and musicians, limiting their impression of a country's creative realm.
 
