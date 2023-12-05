@@ -2,7 +2,7 @@
 # ==== MERGE SORT ==== #
 # Merge sort implemented from slides.
 
-def merge_sort(arr,_type="name"):
+def merge_sort(arr):
     if len(arr) <= 1:
         return arr
 
@@ -13,46 +13,33 @@ def merge_sort(arr,_type="name"):
     left = merge_sort(left)
     right = merge_sort(right)
 
-    return __merge(left,right,_type)
+    return __merge(left,right)
 
-def __merge(left, right, _type="name"):
+def __merge(left, right):
     result = []
     i = j = 0
 
     while i < len(left) and j < len(right):
-        if _type == "name":
-            if left[i][1] < right[j][1]:
-                result.append(left[i])
-                i += 1
-            else:
-                result.append(right[j])
-                j += 1
+        if left[i] < right[j]:
+            result.append(left[i])
+            i += 1
         else:
-            if left[i] < right[j]:
-                result.append(left[i])
-                i += 1
-            else:
-                result.append(right[j])
-                j += 1
+            result.append(right[j])
+            j += 1
     
     result.extend(left[i:])
     result.extend(right[j:])
     return result
     
 # ==== QUICK SORT ==== #
-def quick_sort(arr, _type="name"):
+def quick_sort(arr):
     if len(arr) <= 1:
         return arr
 
     pivot = arr[len(arr) // 2]
-    if _type=="name":
-        left = [x for x in arr if x[1] < pivot[1]]
-        middle = [x for x in arr if x[1] == pivot[1]]
-        right = [x for x in arr if x[1] > pivot[1]]
-    else: 
-        left = [x for x in arr if x < pivot]
-        middle = [x for x in arr if x == pivot]
-        right = [x for x in arr if x > pivot]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
 
     return quick_sort(left) + middle + quick_sort(right)
 

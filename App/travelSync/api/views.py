@@ -48,24 +48,22 @@ class userInfo(APIView):
         songs_to = g_to.MST(len(songs_to))
         songs_from = g_from.MST(len(songs_from))
 
-        # songs_merge_name = Sorty.merge_sort(songs)
-        # songs_merge_artist = Sorty.merge_sort(songs,"")
-        # songs_quick_name = Sorty.quick_sort(songs)
-        # songs_quick_artist = Sorty.quick_sort(songs,"")
+        songs_to = Sorty.merge_sort(songs_to)
+        songs_from = Sorty.quick_sort(songs_from)
 
-        # print(f"Songs Unsorted:{songs}")
-        # print(f"Songs sorted with merge sort by song name: {songs_merge_name}")
-        # print(f"Songs sorted with merge sort by artist name: {songs_merge_artist}")
-        # print(f"Songs sorted with quick sort by song name: {songs_quick_name}")
-        # print(f"Songs sorted with quick sort by artist name: {songs_quick_artist}")
+        size = [0,0]
+        if duration_playlist % 2 == 1:
+            size[0] = duration_playlist//2 + 1
+            size[1] = duration_playlist//2
+        else:
+            size[0] = size[1] = duration_playlist//2
+
+        songs_complete = songs_from[:size[0]] + songs_to[:size[1]]
 
         playlistResult = [{
             'name': song[1],
             'artist': song[0],
             'uri': song[2]
-        } for song in songs_to[:duration_playlist]]
-
-        # for song in top_songs:
-        #     print(f"   1 : {song.name.encode('utf-8').decode('utf-8')},Artist: {song.artist}")
+        } for song in songs_complete]
 
         return playlistResult
