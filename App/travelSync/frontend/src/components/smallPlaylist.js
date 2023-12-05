@@ -22,6 +22,8 @@ export default class SmallPlaylist extends Component{
                 <Typography component="h4" variant="h4">TravelSync Playlist</Typography>
                 <Typography component="h6" variant="h6">{user.name}'s Curated Playlist</Typography>
                 <Typography component="subtitle1" variant="subtitle1">The hottest {playlist.length} hits from {user.countryFrom} to {user.countryTo}</Typography>
+                <br/>
+                <Typography component="subtitle2" variant="subtitle2">Merge Sorted from {user.countryFrom}, Quick Sorted from {user.countryTo} by Artist</Typography>
                 <Typography component="body1" variant="body1">
                 {playlist && (
                     <>

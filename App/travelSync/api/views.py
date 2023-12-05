@@ -58,7 +58,12 @@ class userInfo(APIView):
         else:
             size[0] = size[1] = duration_playlist//2
 
+        songs_from = list(set(songs_from))
+        songs_to = list(set(songs_to))
+
         songs_complete = songs_from[:size[0]] + songs_to[:size[1]]
+
+        songs_complete = Sorty.quick_sort(songs_complete)
 
         playlistResult = [{
             'name': song[1],
