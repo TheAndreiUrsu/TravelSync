@@ -88,19 +88,3 @@ After downloading the CSV file, we performed data cleaning to remove unnecessary
 ### [Domenica](https://github.com/domesimbana)
 
 ### [Andrei](https://github.com/TheAndreiUrsu)
-
-
-## Resources
-### Packages
-* [Spotipy Package](https://spotipy.readthedocs.io/en/2.22.1/)
-* [Django Package](https://docs.djangoproject.com/en/4.2/)
-* [Python Virtual Environment (venv)](https://docs.python.org/3/library/venv.html)
-
-### Algorithms
-* [Dijkstra's Algorithm](https://www.scaler.com/topics/data-structures/dijkstra-algorithm/)
-* [Bellman–Ford Algorithm](https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/)
-* [BFS Graph](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/)
-
-### Data Structures
-* [Red-Black Tree Data Structure](https://www.geeksforgeeks.org/introduction-to-red-black-tree/)
-* [Graph Data Structure](https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/)
