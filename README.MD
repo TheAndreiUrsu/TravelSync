@@ -36,19 +36,21 @@ The dataset utilized in TravelSync is sourced from [Kaggle](https://www.kaggle.c
 After downloading the CSV file, we performed data cleaning to remove unnecessary columns. Columns like artist_followers, album, track_album, track_number, release_date, album/single, and others related to in-depth song classification were eliminated. The remaining columns were renamed for use in our application:
 
 ### 4. Data Types
-**Integers**
+#### **Integers**
  * id
  * key
 
-**Strings**
+#### **Strings**
  - Country
  - Uri
  - Name
  - Artist
  - Genres
-**Boolean**
+
+#### **Boolean**
  - Explicit
-**Floating Point Numbers**
+
+#### **Floating Point Numbers**
  - danceability
  - energy
  - key
