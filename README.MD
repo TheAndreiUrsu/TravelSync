@@ -78,7 +78,7 @@ After downloading the CSV file, we performed data cleaning to remove unnecessary
 
 - **SQLite Studio:** This tool was employed for managing and interacting with the SQLite3 database, offering a user-friendly interface for database operations.
 
-5. Python Library
+### 5. Python Library
 - **networkx:** For its implementation of graph structures to store songs. This library offers a versatile and efficient graph implementation, contributing to the algorithm's functionality within the application.
 
 ## Contributors
@@ -100,3 +100,6 @@ Generated the curated list of desired songs. Implemented a Python dictionary (re
 Data Retrieval and Backend Developer
 #### Contribution
 Retrieved and processed data from the Kaggle dataset. Transformed Joshua's Python scripts into an Object-Oriented Programming (OOP) structure. Collaborated with Joshua on the similarities function, determining weights for genre and tempo. Implemented Merge Sort and Quick Sort algorithms and developed personal libraries for Django to return the playlist JSON for the frontend display.
+
+## Resources
+
