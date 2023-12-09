@@ -79,7 +79,15 @@ After downloading the CSV file, we performed data cleaning to remove unnecessary
 - **SQLite Studio:** This tool was employed for managing and interacting with the SQLite3 database, offering a user-friendly interface for database operations.
 
 5. Python Library
-- **networkx:** To implement graph structures for storing songs, the Python library networkx was utilized. This library offers a versatile and efficient graph implementation, contributing to the algorithm's functionality within the application.
+- **networkx:** For its implementation of graph structures to store songs. This library offers a versatile and efficient graph implementation, contributing to the algorithm's functionality within the application.
+
+## Contributors
+
+### [Joshua](https://github.com/delamaterj)
+
+### [Domenica](https://github.com/domesimbana)
+
+### [Andrei](https://github.com/TheAndreiUrsu)
 
 
 ## Resources
