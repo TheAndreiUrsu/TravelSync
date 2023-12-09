@@ -39,6 +39,7 @@ After downloading the CSV file, we performed data cleaning to remove unnecessary
 **Integers**
  * id
  * key
+
 **Strings**
  - Country
  - Uri
