@@ -23,37 +23,61 @@ Understanding that music is more than just sound, **TravelSync** takes playlist 
 Flexibility is key, and **TravelSync** empowers you to decide the size of your playlist. Whether you prefer a short selection for quick plane rides or an extensive compilation for long-haul flights lasting 17 hours or more, the choice is yours. Tailor your musical journey to suit the duration of your travels.
 
 
-## Data
-The dataset we used is from [kaggle](https://www.kaggle.com/datasets/pepepython/spotify-huge-database-daily-charts-over-3-years), titled Spotify HUGE database - daily charts over 3 years by user “pepe”. This data set contained over 170k data points to choose from. While searching for a dataset we had to ensure it didn’t have duplicates, but this one did. There are duplicates since there are similar songs in different countries but not every country will have all the same songs. We are categorizing the data by country, thereby keeping the uniqueness of the data. 
- 
+## Data Overview
 
-## Tools
-* Frontend ReactJS - a JavaScript frontend framework for web applications.
-* Backend Django with REST - a Python backend framework for web applications.
-* Data Storage SQLite3 Database - a C-based library that uses a small but fast SQL database engine.
-* Tools Visual Studio Code, Github, SQLite Studio
-* Python Library networkx (Graph implementation for storing the songs in a graph).
-## Visuals
+### 1. Source
+The dataset utilized in TravelSync is sourced from [Kaggle](https://www.kaggle.com/datasets/pepepython/spotify-huge-database-daily-charts-over-3-years) and is titled "Spotify HUGE database - daily charts over 3 years" by user "pepe." This dataset spans over 170,000 datapoints and is derived from Spotify's Daily Top 200 Charts across 35 countries, including global charts, from 2017 to 2020.
 
- **Input Page**: 
-* This page includes four drop-down menus that collect information on the user's music preferences and the country they are interested in. 
-* It also includes buttons to initiate and restart the recommendation process.
+### 2. Dataset Characteristics
+- **Duplicates:** The dataset initially contained duplicates due to similar songs appearing in different countries. To maintain uniqueness, we categorized the data by country, ensuring that not every country would have the same songs.
+-  **Format:** The dataset is stored as a CSV (comma-separated values) file with various columns such as title, URI, country, popularity, artist, album, genre, and more.
 
- **Output Page**: 
-  * Users will see a list of recommended songs with a play button next to each song, allowing them to preview the music. 
-  * Includes buttons to start the recommendation process anew.
+### 3. Data Cleaning
+After downloading the CSV file, we performed data cleaning to remove unnecessary columns. Columns like artist_followers, album, track_album, track_number, release_date, album/single, and others related to in-depth song classification were eliminated. The remaining columns were renamed for use in our application:
 
-## Strategy
-To efficiently store and recommend music, we plan to implement the following strategies:
+### 4. Data Types
+- **Integers**
+ - id
+ - key
+- **Strings**
+ - Country
+ - Uri
+ - Name
+ - Artist
+ - Genres
+- **Boolean**
+ - Explicit
+- **Floating Point Numbers**
+ - danceability
+ - energy
+ - key
+ - loudness
+ - speechiness
+ - acoustics
+ - instrumentalness
+ - liveliness
+ - valence
+ - tempo
+ - duration_s
 
- **Red-Black Trees**: 
- * We will use red-black trees to store the music data with the song name and artist as the key and its metadata as the values. 
- * This data structure allows for fast access to songs based on the user's requested genre, length, and country.
 
- **Graph Structure**: 
- * The 20 chosen songs will be placed in a graph structure where the nodes represent songs, and the weighted edges represent the similarity between songs. 
- * This similarity is based on factors like tempo and rhythm, ensuring a better listening experience. 
- * We will use algorithms such as Dijkstra's and Bellman-Ford to navigate this graph.
+## Tools/Languages/APIs/Libraries Used
+### 1. Frontend
+- **ReactJS:** Utilized as the JavaScript frontend framework, ReactJS provides a robust foundation for developing dynamic and responsive web applications.
+### 2. Backend
+- **Django with REST:** The backend is powered by Django, a Python framework for web applications. RESTful architecture is implemented to facilitate seamless communication between the frontend and backend components.
+### 3. Data Storage
+- **SQLite3 Database:** The data is stored in an SQLite3 Database, a C-based library known for its efficiency and speed in handling small to medium-sized SQL databases.
+### 4. Development Tools
+- **Visual Studio Code:** This popular code editor was used for efficient development, providing a range of features to enhance the coding experience.
+
+- **GitHub:** Version control and collaboration were managed using GitHub, enabling effective team collaboration and code tracking.
+
+- **SQLite Studio:** This tool was employed for managing and interacting with the SQLite3 database, offering a user-friendly interface for database operations.
+
+5. Python Library
+- **networkx:** To implement graph structures for storing songs, the Python library networkx was utilized. This library offers a versatile and efficient graph implementation, contributing to the algorithm's functionality within the application.
+
 
 ## Resources
 ### Packages
