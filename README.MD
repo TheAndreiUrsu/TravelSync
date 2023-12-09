@@ -1,20 +1,27 @@
 # TravelSync
 
 ## Problem
-Imagine you are an avid traveler, and you like traveling to other countries to experience their rich cultures. Aside from visiting monuments, eating new cuisine, and taking memorable pictures, music becomes an outlet to experience culture through a new lens. Unfortunately, travelers are unfamiliar with local music genres and musicians, limiting their impression of a country's creative realm.
+As passionate travelers, we understand the challenges faced by those who seek to immerse themselves in the diverse cultures of the world. While visiting iconic landmarks and trying local cuisines are integral parts of the travel experience, music often remains an overlooked avenue for cultural exploration. Many travelers find themselves unfamiliar with the local music scene, limiting their understanding of a country's creative expression.
+
+This app addresses the aforementioned issue by presenting a solution for avid travelers. Acknowledging music as a universal language that transcends cultural boundaries, we perceive this challenge as an opportunity for exploration and connection.
 
 ## Motivation
-Culture shock becomes a prominent issue amongst travelers; it is an issue that can lead to cultural misunderstanding and homesickness. Getting a glimpse into the music of a country allows users to feel a sense of connection with a country's art aside from appreciating the country's architecture and touristic locations. TravelSync is motivated to create an appreciation for local music within a traveler, leading to the decrease of culture shock during their stay in a foreign country.
+Culture shock is a prevalent issue among travelers, often leading to misunderstandings and homesickness. To mitigate this, we aim to provide users with a glimpse into the music of a country, fostering a sense of connection with its artistic expression beyond the visual aspects of architecture and tourist attractions. **TravelSync** seeks to cultivate an appreciation for local music, contributing to a reduction in culture shock during a traveler's stay in a foreign country.
 
 ## Features
 
-Introducing TravelSync, your ultimate travel companion web app with a multitude of user-centric features. As you take your plane ticket on your global adventures, TravelSync begins by asking for your name to store in the database and retrieve your information. 
+### 1. User-Experience
+As your ultimate travel companion web app, **TravelSync** offers a user-centric experience from the moment you embark on your global adventures. Upon entering your name, the app stores your information in the database for personalized interactions.
 
-Designed for seamless integration with your travel experience, there are inputs for both your home country and your destination, adding to your cultural adventure with a curated playlist of songs that can be accessed through Spotify (only the song, not the playlist, and if you have a Spotify Free or Premium account). This feature allows for a world-expanding view of music, experiencing songs that you might not have heard of.
+### 2. Cultural Adventure Playlist
+Designed for seamless integration with your travel experience, **TravelSync** prompts you to input both your home country and your destination. It then generates a curated playlist of songs, accessible through Spotify (individual songs only, compatible with both Free and Premium Spotify accounts). This feature provides a world-expanding view of music, introducing you to songs you might not have encountered otherwise.
 
-With our understanding of music is more than just sound, TravelSync takes playlist customization to the next level with an input for your favorite genre. Whether you’re mesmerized by the thundering riffs of Rock, the catchy, can’t get out of your head, tunes of Pop, or the feeling of wanting to shake every bone in your body of Electronic Dance, TravelSync finetunes its recommendations to align within your music tastes. 
+### 3. Genre-Based Customization
+Understanding that music is more than just sound, **TravelSync** takes playlist customization to the next level. You can specify your favorite genre, whether you're into the thundering riffs of Rock, the catchy tunes of Pop, or the energetic beats of Electronic Dance. The app fine-tunes its recommendations to align with your unique music tastes.
 
-Flexibility is key, and TravelSync allows for you to choose how many songs are in your playlist, whether it’s 1 song or 100k songs, the choice is yours. Perfect for the short plane rides, or the long 17+ hour plane rides. 
+### 4. Playlist Flexibility
+Flexibility is key, and **TravelSync** empowers you to decide the size of your playlist. Whether you prefer a short selection for quick plane rides or an extensive compilation for long-haul flights lasting 17 hours or more, the choice is yours. Tailor your musical journey to suit the duration of your travels.
+
 
 ## Data
 The dataset we used is from [kaggle](https://www.kaggle.com/datasets/pepepython/spotify-huge-database-daily-charts-over-3-years), titled Spotify HUGE database - daily charts over 3 years by user “pepe”. This data set contained over 170k data points to choose from. While searching for a dataset we had to ensure it didn’t have duplicates, but this one did. There are duplicates since there are similar songs in different countries but not every country will have all the same songs. We are categorizing the data by country, thereby keeping the uniqueness of the data. 
