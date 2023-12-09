@@ -83,8 +83,20 @@ After downloading the CSV file, we performed data cleaning to remove unnecessary
 
 ## Contributors
 
-### [Joshua](https://github.com/delamaterj)
-
 ### [Domenica](https://github.com/domesimbana)
+#### Role
+Frontend Developer
+#### Contribution
+Led the front-end development using ReactJS and Django, creating the user interface, including buttons, text fields, drop-down menus, and the final playlist grid. Ensured seamless integration with the backend, coordinating with Joshua and Andrei. Assisted Andrei in understanding ReactJS while implementing Joshua’s functions.
+
+### [Joshua](https://github.com/delamaterj)
+#### Role
+Backend Developer
+#### Contribution
+Generated the curated list of desired songs. Implemented a Python dictionary (red-black tree), and converted it into a graph. Created the graph's Minimum Spanning Tree (MST) using Kruskal’s algorithm with the networkx library. Collaborated with Andrei on a function to calculate song similarities for graph/MST additions.
 
 ### [Andrei](https://github.com/TheAndreiUrsu)
+#### Role
+Data Retrieval and Backend Developer
+#### Contribution
+Retrieved and processed data from the Kaggle dataset. Transformed Joshua's Python scripts into an Object-Oriented Programming (OOP) structure. Collaborated with Joshua on the similarities function, determining weights for genre and tempo. Implemented Merge Sort and Quick Sort algorithms and developed personal libraries for Django to return the playlist JSON for the frontend display.
