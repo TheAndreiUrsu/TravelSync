@@ -102,4 +102,10 @@ Data Retrieval and Backend Developer
 Retrieved and processed data from the Kaggle dataset. Transformed Joshua's Python scripts into an Object-Oriented Programming (OOP) structure. Collaborated with Joshua on the similarities function, determining weights for genre and tempo. Implemented Merge Sort and Quick Sort algorithms and developed personal libraries for Django to return the playlist JSON for the frontend display.
 
 ## Resources
-
+- [Django](https://docs.djangoproject.com/en/4.2/)
+- [Red-Black Tree](https://www.geeksforgeeks.org/introduction-to-red-black-tree/)
+- [Graph](https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/)
+- [Networkx MST](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.tree.mst.minimum_spanning_tree.html)
+- [Networkx Add Edges](https://networkx.org/documentation/stable/auto_examples/drawing/plot_weighted_graph.html)
+- [React Text Field](https://mui.com/material-ui/react-text-field/)
+- [React Typography](https://mui.com/material-ui/react-typography/)
