@@ -66,20 +66,20 @@ After downloading the CSV file, we performed data cleaning to remove unnecessary
 
 ## Tools/Languages/APIs/Libraries Used
 ### 1. Frontend
-- **ReactJS:** Utilized as the JavaScript frontend framework, ReactJS provides a robust foundation for developing dynamic and responsive web applications.
+- **[ReactJS:](https://react.dev/)** Utilized as the JavaScript frontend framework, ReactJS provides a robust foundation for developing dynamic and responsive web applications.
 ### 2. Backend
-- **Django with REST:** The backend is powered by Django, a Python framework for web applications. RESTful architecture is implemented to facilitate seamless communication between the frontend and backend components.
+- **[Django with REST:](https://www.django-rest-framework.org/)** The backend is powered by Django, a Python framework for web applications. RESTful architecture is implemented to facilitate seamless communication between the frontend and backend components.
 ### 3. Data Storage
-- **SQLite3 Database:** The data is stored in an SQLite3 Database, a C-based library known for its efficiency and speed in handling small to medium-sized SQL databases.
+- **[SQLite3 Database:](https://www.sqlite.org/index.html)** The data is stored in an SQLite3 Database, a C-based library known for its efficiency and speed in handling small to medium-sized SQL databases.
 ### 4. Development Tools
-- **Visual Studio Code:** This popular code editor was used for efficient development, providing a range of features to enhance the coding experience.
+- **[Visual Studio Code:](https://code.visualstudio.com/)** This popular code editor was used for efficient development, providing a range of features to enhance the coding experience.
 
-- **GitHub:** Version control and collaboration were managed using GitHub, enabling effective team collaboration and code tracking.
+- **[GitHub:](https://github.com/TheAndreiUrsu/TravelSync)** Version control and collaboration were managed using GitHub, enabling effective team collaboration and code tracking.
 
-- **SQLite Studio:** This tool was employed for managing and interacting with the SQLite3 database, offering a user-friendly interface for database operations.
+- **[SQLite Studio:](https://sqlitebrowser.org/)** This tool was employed for managing and interacting with the SQLite3 database, offering a user-friendly interface for database operations.
 
 ### 5. Python Library
-- **networkx:** For its implementation of graph structures to store songs. This library offers a versatile and efficient graph implementation, contributing to the algorithm's functionality within the application.
+- **[networkx:](https://networkx.org/)** For its implementation of graph structures to store songs. This library offers a versatile and efficient graph implementation, contributing to the algorithm's functionality within the application.
 
 ## Contributors
 
